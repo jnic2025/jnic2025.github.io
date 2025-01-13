@@ -1,0 +1,14 @@
+.eb-countdown-zivkhos.eb-cd-wrapper {max-width: 786px;transition: background .5s,border .5s,border-radius .5s,box-shadow .5s;}
+div.eb-countdown-zivkhos.eb-cd-wrapper {margin-left: auto;margin-right: auto;}
+.eb-countdown-zivkhos.eb-cd-wrapper:before {transition: background .5s,opacity .5s,filter .5s;}
+.eb-countdown-zivkhos.eb-cd-wrapper .eb-cd-inner {flex-direction: row;}
+.eb-countdown-zivkhos.eb-cd-wrapper .eb-cd-inner .box {background-image: linear-gradient(28deg,rgba(59,0,54,.74) 2%,rgba(51,0,0,0) 100%);background-color: rgba(106,37,37,.4);transition: background .5s,border .5s,border-radius .5s,box-shadow .5s;padding-top: 0px;padding-right: 0px;padding-left: 0px;padding-bottom: 14px;border-radius: 15px;flex-direction: column;align-items: center;}
+.eb-countdown-zivkhos.eb-cd-wrapper .eb-cd-inner .box span.eb-cd-digit {font-size: 82px;letter-spacing: 0px;padding: 0px;color: #fff;}
+.eb-countdown-zivkhos.eb-cd-wrapper .eb-cd-inner .box span.eb-cd-label {font-size: 18px;line-height: 1em;padding: 0px;color: #fff;}
+.eb-countdown-zivkhos.eb-cd-wrapper .eb-cd-inner .box + .box {margin: 0;margin-left: 20px;}
+.wp-admin .eb-parent-eb-countdown-zivkhos {display: block;opacity: 1;}
+.eb-parent-eb-countdown-zivkhos {display: block;}
+@media (max-width: 1024px) {.editor-styles-wrapper.wp-embed-responsive .eb-parent-eb-countdown-zivkhos {display: block;opacity: 1;}
+	.eb-parent-eb-countdown-zivkhos {display: block;}}
+@media (max-width: 767px) {.editor-styles-wrapper.wp-embed-responsive .eb-parent-eb-countdown-zivkhos {display: block;opacity: 1;}
+	.eb-parent-eb-countdown-zivkhos {display: block;}}
