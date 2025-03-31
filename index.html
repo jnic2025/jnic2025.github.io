@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-US">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
 	<title>JNIC 2025</title>
 	<meta name="robots" content="max-image-preview:large">
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -3277,6 +3277,113 @@
 			font-size: 1.5em;
 			line-height: 1.6;
 		}
+
+		.dropdown {
+			float: left;
+			overflow: hidden;
+		}
+		
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: rgba(82, 42, 56);
+			min-width: 150px;
+			z-index: 1;
+			margin-top: 205%;
+		}
+
+		.dropdown-content a {
+			float: none;
+			color: white;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			text-align: left;
+		}
+
+		.dropdown-content a:hover {
+			background-color: rgba(99, 57, 72);
+		}
+
+		.tba, .tba:hover{
+			background-color: rgba(184, 184, 184) !important;
+			color: black !important;
+			text-decoration: line-through !important;
+			cursor: not-allowed;
+		}
+
+		.show {
+			display: block;
+		}
+
+		.flex-row{
+			display: flex;
+			justify-content: space-around;
+			align-items: baseline;
+			align-content: center;
+		}
+
+		.flex-col{
+			display: flex;
+			justify-content: space-around;
+			align-items: baseline;
+			align-content: center;
+		}
+		
+		.foto{
+			display: flex;
+			flex-direction: column;
+			width: 40%;
+			align-self: center;
+		}
+		
+		.separador{
+			width: 5%;
+			align-self: center;
+		}
+		
+		.descripcion{
+			width: 55%;
+			align-self: center;
+		}
+
+		.vl {
+			border-left: 2px solid lightgray;
+			height: 60vh;
+			margin-left: 2vw;
+		}
+
+		@media (max-width:921px) {
+			#content{
+				margin-top: 15vh;
+			}
+
+			.flex-row{
+				flex-direction: column;
+			}
+
+			.foto{
+				width: 100%;
+			}
+			
+			.separador{
+				width: 100%;
+				justify-content: center;
+				margin-top: 10vh;
+			}
+
+			.vl {
+				transform: rotate(90deg);
+				height: 30vh;
+			}
+			
+			.descripcion{
+				width: 100%;
+				margin-top: -27vh;
+				font-size: 1em !important;
+			}
+
+		}
 	</style>
 
 	<link rel="icon" href="https://jnic2025.github.io/wp-content/uploads/images/JNIC/cropped-logo-1-32x32.png"
@@ -3287,22 +3394,6 @@
 		href="https://jnic2025.github.io/wp-content/uploads/images/JNIC/cropped-logo-1-180x180.png">
 	<meta name="msapplication-TileImage"
 		content="https://jnic2025.github.io/wp-content/uploads/images/JNIC/cropped-logo-1-270x270.png">
-
-	<style type="text/css">
-		body > iframe { display: none; }
-		
-		#jnicCountdown { width: 240px; height: 45px; }
-	</style>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/jquery.plugin.js"></script>
-	<script src="js/jquery.countdown.js"></script>
-	<script>
-		$(function () {
-			var jnicDay = new Date();
-			jnicDay = new Date(2025, 6-1, 4);
-			$('#jnicCountdown').countdown({until: jnicDay, format: 'owdhm', labels: ['Años', 'Meses', 'Semanas', 'Días', 'Horas', 'Minutos', 'Segundos']});
-		});
-	</script>
 </head>
 
 <body itemtype="https://schema.org/WebPage" itemscope="itemscope"
@@ -3393,6 +3484,22 @@
 												selector: "#clock1",
 												targetDate: new Date("June, 4 2025 09:00:00"),
 											});timer.startTimer();
+
+											/* When the user clicks on the button, 
+											toggle between hiding and showing the dropdown content */
+											function dropPrograma() {
+												document.getElementById("opcionesPrograma").classList.toggle('show');
+											}
+
+											// Close the dropdown if the user clicks outside of it
+											window.onclick = function(e) {
+												if (!e.target.matches('.programaDrop')) {
+													var myDropdown = document.getElementById("opcionesPrograma");
+													if (myDropdown.classList.contains('show')) {
+														myDropdown.classList.remove('show');
+													}
+												}
+											}
 										</script>		
 									</div>
 								</div>
@@ -3413,24 +3520,30 @@
 																class="menu-item menu-item-type-custom menu-item-object-custom menu-item-60">
 																<a rel="inicio" href="https://jnic2025.github.io/" class="menu-link">Inicio</a>
 															</li>
+															<li id="menu-item-885" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-885">
+																<a href="https://jnic2025.github.io/cfp" class="menu-link">Call For Papers</a></li>
+															<li id="menu-item-1519"
+																class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1519">
+																<a class="menu-link programaDrop"  href="#" onclick="dropPrograma();">Programa &#11206;</a>
+																<div class="dropdown-content" id="opcionesPrograma">
+																	<a href="https://jnic2025.github.io/invitados">Ponentes invitados</a>
+																	<a href="#" class="tba">Horario</a>
+																	<a href="#" class="tba">Pósters</a>
+																</div>
+															</li>
 															<li id="menu-item-12"
 																class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12">
 																<a href="https://jnic2025.github.io/sede" class="menu-link">Sede</a></li>
-															<li id="menu-item-15"
+															<!-- <li id="menu-item-15"
 																class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15">
-																<a href="https://jnic2025.github.io/contacto" class="menu-link">Contacto</a></li>
+																<a href="https://jnic2025.github.io/contacto" class="menu-link">Contacto</a></li> -->
 															<li id="menu-item-11"
 																class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11">
 																<a href="https://jnic2025.github.io/comites" class="menu-link">Comités</a></li>
-															<!-- <li id="menu-item-1519"
-																class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1519">
-																<a href="https://jnic2025.github.io/programa" class="menu-link">Programa</a></li> -->
 															<!-- <li id="menu-item-1645"
 																class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1645">
 																<a href="https://jnic2025.github.io/inscripcion" class="menu-link">Inscripción</a>
 															</li> -->
-															<li id="menu-item-885" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-885">
-																<a href="https://jnic2025.github.io/cfp" class="menu-link">Call For Papers</a></li>
 															<!-- <li id="menu-item-1285"
 																class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1285">
 																<a href="https://jnic2025.github.io/capture-the-flag" class="menu-link"
@@ -3522,38 +3635,60 @@
 						</div>
 					</div>
 				</div>
+				<!-- SECTION SUBMENU -->
 				<div class="ast-mobile-header-content content-align-flex-start">
 					<div class="ast-builder-menu-mobile ast-builder-menu ast-builder-menu-mobile-focus-item ast-builder-layout-element site-header-focus-item"
-						data-section="section-header-mobile-menu">
-						<div class="ast-main-header-bar-alignment">
-							<div class="main-header-bar-navigation">
-								<nav class="site-navigation" id="ast-mobile-site-navigation"
-									itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope"
-									aria-label="Site Navigation">
-									<div id="ast-hf-mobile-menu" class="main-navigation">
-										<ul
-											class="main-header-menu ast-nav-menu ast-flex  submenu-with-border astra-menu-animation-fade  stack-on-mobile" style="background-color:rgba(82, 42, 56); border: none;">
-											<li class="page_item page-item-7 current-menu-item menu-item current-menu-item"><a
-												href="https://jnic2025.github.io/"
-												class="menu-link" style="color: white; border: none">Inicio</a></li>
+					data-section="section-header-mobile-menu">
+					<div class="ast-main-header-bar-alignment">
+						<div class="main-header-bar-navigation">
+							<nav class="site-navigation" id="ast-mobile-site-navigation"
+							itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope"
+							aria-label="Site Navigation">
+							<div id="ast-hf-mobile-menu" class="main-navigation">
+								<ul
+								class="main-header-menu ast-nav-menu ast-flex submenu-with-border astra-menu-animation-fade stack-on-mobile" style="background-color:rgba(82, 42, 56); border: none;">
+								<li class="page_item page-item-7 current-menu-item menu-item current-menu-item"><a
+									href="https://jnic2025.github.io/"
+									class="menu-link" style="color: white; border: none">Inicio</a></li>
+									<li id="menu-item-885" class="menu-item menu-item-type-custommenu-item-object-custom menu-item-885">
+										<a href="https://jnic2025.github.io/cfp" class="menu-link"
+										style="color: white; border: none">Call For Papers</a></li>
+										<li class="page_item page-item-259 menu-item">
+											<a href="#" class="menu-link" style="color: white; border: none">Programa &#11206;</a>
+												
+												<!-- SECTION SUBSUBMENU -->
+												<div class="ast-mobile-header-content content-align-flex-start">
+													<div class="ast-builder-menu-mobile ast-builder-menu ast-builder-menu-mobile-focus-item ast-builder-layout-element site-header-focus-item"
+														data-section="section-header-mobile-menu">
+														<div class="ast-main-header-bar-alignment">
+															<div class="main-header-bar-navigation">
+																<div id="ast-hf-mobile-menu" class="main-navigation">
+																	<ul
+																		class="main-header-menu ast-nav-submenu ast-flex submenu-with-border astra-menu-animation-fade stack-on-mobile" style="background-color:rgb(99, 59, 73); border: none;">
+																		<li class="page_item page-item-202 menu-item">
+																			<a href="https://jnic2025.github.io/invitados" class="menu-link" style="color: white; border: none">Ponentes invitados</a>
+																			<a href="#" class="menu-link tba" style="color: white; border: none">Horario</a>
+																			<a href="#" class="menu-link tba" style="color: white; border: none">Pósters</a>
+																		</li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</li>
 											<li class="page_item page-item-202 menu-item"><a
 												href="https://jnic2025.github.io/sede/"
 												class="menu-link" style="color: white; border: none">Sede</a></li>
-											<li class="page_item page-item-371 menu-item"><a
+											<!-- <li class="page_item page-item-371 menu-item"><a
 												href="https://jnic2025.github.io/contacto/"
-												class="menu-link" style="color: white; border: none">Contacto</a></li>
+												class="menu-link" style="color: white; border: none">Contacto</a></li> -->
 											<li class="page_item page-item-340 menu-item"><a
 												href="https://jnic2025.github.io/comites/"
 												class="menu-link" style="color: white; border: none">Comités</a></li>
-											<!-- <li class="page_item page-item-259 menu-item"><a
-												href="https://jnic2025.github.io/programa/"
-												class="menu-link" style="color: white; border: none">Programa</a></li> -->
 											<!-- <li class="page_item page-item-389 menu-item"><a
 												href="https://jnic2025.github.io/inscripcion/"
 												class="menu-link" style="color: white; border: none">Inscripcion</a></li> -->
-											<li id="menu-item-885" class="menu-item menu-item-type-custommenu-item-object-custom menu-item-885">
-												<a href="https://jnic2025.github.io/cfp" class="menu-link"
-													style="color: white; border: none">Call For Papers</a></li>
 											<!-- <li class="page_item page-item-472 menu-item"><a
 												href="https://jnic2025.github.io/capture-the-flag/"
 												class="menu-link" style="color: white; border: none">Capture-The-Flag</a></li> -->
@@ -3574,7 +3709,7 @@
 						<!-- HOME JNIC LOGO -->
 						<div class="site-branding ast-site-identity"
 							itemtype="https://schema.org/Organization" itemscope="itemscope">
-							<div class="clock" id="clock2" style="display: flex; color: white; font-size: x-large; justify-content: center;">
+							<div class="clock" id="clock2" style="display: flex; color: white; font-size: x-large; justify-content: center; align-items: center;">
 								Quedan
 								<p style="width: 2mm;"></p>
 								<div data-value="days"></div>
